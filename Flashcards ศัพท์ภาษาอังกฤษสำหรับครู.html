@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="th"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Flashcards ศัพท์ภาษาอังกฤษสำหรับครู</title>
+<style>
+:root{--bg:#f4f3ff;--sf:#fff;--tx:#1e2235;--mu:#6b7186;--ac:#5b5ef4;--ac2:#8b5cf6;--ok:#16a34a;--no:#e11d48;--bd:#e4e4f2;--sh:0 10px 30px rgba(70,70,160,.12);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#12131c;--sf:#1c1e2b;--tx:#eef0fa;--mu:#9a9fb8;--ac:#8b8dff;--ac2:#a78bfa;--ok:#4ade80;--no:#fb7185;--bd:#2b2e42;--sh:0 10px 30px rgba(0,0,0,.4);color-scheme:dark}}
+:root[data-theme=dark]{--bg:#12131c;--sf:#1c1e2b;--tx:#eef0fa;--mu:#9a9fb8;--ac:#8b8dff;--ac2:#a78bfa;--ok:#4ade80;--no:#fb7185;--bd:#2b2e42;--sh:0 10px 30px rgba(0,0,0,.4);color-scheme:dark}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);background-image:radial-gradient(600px 300px at 10% -5%,rgba(139,92,246,.18),transparent),radial-gradient(500px 300px at 100% 0,rgba(91,94,244,.15),transparent);background-repeat:no-repeat;color:var(--tx);font-family:"Sarabun","Noto Sans Thai",system-ui,sans-serif;line-height:1.5;min-height:100vh}
+main{max-width:680px;margin:0 auto;padding:20px 16px 48px}
+.hero{background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff;border-radius:24px;padding:24px 22px;box-shadow:var(--sh);margin-bottom:18px;position:relative;overflow:hidden}
+.hero:after{content:"A ก";position:absolute;right:14px;bottom:-14px;font-size:5rem;font-weight:800;opacity:.15}
+.hero h1{font-size:1.6rem;margin:0 0 4px}.hero p{margin:0;opacity:.9}
+.chips{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}.chips span{background:rgba(255,255,255,.2);padding:3px 12px;border-radius:99px;font-size:.85rem}
+h3{margin:18px 0 6px}p.s{color:var(--mu);margin:0 0 8px}
+button{font:inherit;cursor:pointer;border:1px solid var(--bd);background:var(--sf);color:var(--tx);border-radius:14px;padding:11px 18px;transition:transform .15s,box-shadow .15s}
+button:hover:not(:disabled){transform:translateY(-1px);box-shadow:var(--sh)}button:active:not(:disabled){transform:scale(.97)}
+button.p{background:linear-gradient(135deg,var(--ac),var(--ac2));color:#fff;border:none;font-weight:600}button:disabled{opacity:.4;cursor:not-allowed}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px;margin:10px 0}
+.cat{text-align:left;padding:14px;display:flex;flex-direction:column;gap:3px;border-radius:18px;border-left:5px solid hsl(var(--h) 75% 60%);position:relative}
+.cat.on{background:hsl(var(--h) 80% 60%/.14);box-shadow:0 0 0 2px hsl(var(--h) 75% 58%)}
+.cat.on:after{content:"✓";position:absolute;top:10px;right:12px;color:hsl(var(--h) 70% 45%);font-weight:800}
+.cat small{color:var(--mu)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:12px 0}
+.opts{background:var(--sf);border:1px solid var(--bd);border-radius:16px;padding:6px 14px}
+.opt{display:flex;gap:8px;align-items:center;padding:6px 0;cursor:pointer}.opt input{accent-color:var(--ac);width:18px;height:18px}
+.bar{height:10px;background:var(--bd);border-radius:10px;overflow:hidden;margin:10px 0}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--ac),var(--ac2));border-radius:10px;transition:width .4s}
+.scene{perspective:1200px;margin:18px 0}
+.card{position:relative;height:300px;transition:transform .55s cubic-bezier(.4,.2,.2,1);transform-style:preserve-3d;cursor:pointer}.card.f{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--sf);border:1px solid var(--bd);border-radius:26px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;box-shadow:var(--sh)}
+.face:before{content:"";position:absolute;left:0;right:0;top:0;height:8px;border-radius:26px 26px 0 0;background:linear-gradient(90deg,var(--ac),var(--ac2))}
+.face.b{transform:rotateY(180deg);background:linear-gradient(160deg,var(--sf),rgba(139,92,246,.12))}
+.w{font-size:2.3rem;font-weight:800;word-break:break-word;letter-spacing:-.5px}.t{font-size:1.7rem;font-weight:600}
+.tag{position:absolute;top:22px;left:20px;font-size:.78rem;color:var(--ac);background:rgba(91,94,244,.12);padding:2px 10px;border-radius:99px}
+.hint{color:var(--mu);font-size:.85rem;margin-top:12px}
+.act{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.act button{padding:16px;font-weight:700;font-size:1.05rem;border-width:2px}
+.no{color:var(--no);border-color:var(--no)!important}.ok{color:var(--ok);border-color:var(--ok)!important}
+.no:hover:not(:disabled){background:rgba(225,29,72,.1)}.ok:hover:not(:disabled){background:rgba(22,163,74,.1)}
+.stat{display:flex;gap:12px;margin:14px 0}.stat div{flex:1;background:var(--sf);border:1px solid var(--bd);border-radius:18px;padding:14px;text-align:center;box-shadow:var(--sh)}.stat b{display:block;font-size:2rem}
+ul.l{list-style:none;padding:0;margin:8px 0}ul.l li{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;background:var(--sf);border:1px solid var(--bd);border-radius:12px;margin-bottom:6px}
+ul.l li span:last-child{color:var(--mu);text-align:right}
+details{margin-top:10px}summary{cursor:pointer;padding:8px 0;font-weight:600}
+.top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.sp{background:none;border:none;font-size:1.3rem;padding:4px 8px;position:absolute;top:14px;right:12px;box-shadow:none!important}
+</style></head><body><main id="app"></main>
+<script>
+const C=[
+["บุคลากรในโรงเรียน","School Staff","👩‍🏫","Coach|ผู้ฝึกสอน;Counselor|ที่ปรึกษา;Instructor|ผู้สอน;Janitor|ภารโรง;Librarian|บรรณารักษ์;School nurse|พยาบาลประจำโรงเรียน;School principal|ผู้อำนวยการโรงเรียน;Staff|บุคลากร;Teaching Assistant|ผู้ช่วยสอน;Vice principal|รองผู้อำนวยการโรงเรียน"],
+["วิชาในโรงเรียน","School Subjects","📚","Craft|งานประดิษฐ์;Culture|วัฒนธรรม;Economics|เศรษฐศาสตร์;Foreign Languages|ภาษาต่างประเทศ;Geography|ภูมิศาสตร์;Guidance|แนะแนว;Health|สุขศึกษา;Literature|วรรณคดี;Physical Education|พลศึกษา;Religion|ศาสนา"],
+["สื่อการเรียนการสอน","Instructional Materials","📝","Assignment|งานที่ได้รับมอบหมาย;Diagram|แผนภาพ;Essay|เรียงความ;Flashcards|บัตรคำ;Handout|เอกสารประกอบการเรียน;Illustration|ภาพประกอบ;Instruction|คำแนะนำ / คำสั่ง;Material|สื่อการเรียนรู้;Worksheet|ใบงาน;Textbook|หนังสือเรียน"],
+["การกระทำในการสอน","Actions in Teaching","🖐️","Give out|แจกจ่าย;Take out|นำออก;Write down|จดบันทึก;Pass on|ส่งต่อ;Move on (to)|ดำเนินต่อไป เปลี่ยนไปทำสิ่งถัดไป;Go on (with)|ทำต่อไป ดำเนินต่อ;Put together|จัดวางรวมกัน นำมารวมกัน;Speak up|พูดให้ดังขึ้น;Read out|อ่านออกเสียง"],
+["วิธีการจัดการเรียนการสอน","Teaching Methods","🧪","Case study|กรณีศึกษา;Demonstration|การสาธิต;Discussion|การอภิปราย;Experiment|การทดลอง;Field trip|การทัศนศึกษา;Gamification|การใช้เกมในการจัดการเรียนรู้;Method|วิธีการ กระบวนการ;Performance|การปฏิบัติ ผลการปฏิบัติงาน;Reflection|การสะท้อนผล;Simulation|การจำลองสถานการณ์"],
+["การประเมินผล","Assessment","✅","Assign|มอบหมายงาน;Assist|ช่วยเหลือ สนับสนุน;Conduct|ดำเนินการ;Evaluate|ประเมินผล;Facilitate|อำนวยความสะดวก;Improve|ปรับปรุง พัฒนา;Monitor|ติดตาม ตรวจสอบ;Observe|สังเกต;Revise|แก้ไข ปรับปรุง;Suggest|เสนอแนะ"],
+["คำศัพท์เกี่ยวกับงานวิจัย","Research Vocabulary","🔬","Acknowledgment|การกล่าวขอบคุณ กิตติกรรมประกาศ;Aim|จุดมุ่งหมาย เป้าหมาย;Analyze|วิเคราะห์;Application|การประยุกต์ใช้;Appendices|ภาคผนวก;Background|ภูมิหลัง ความเป็นมา;Citation|การอ้างอิง;Collection|การรวบรวม;Comparison|การเปรียบเทียบ;Context|บริบท สภาพแวดล้อม;Contribution|การมีส่วนร่วม ผลงานที่มีส่วนช่วย;Criteria|เกณฑ์;Demographic|ลักษณะทางประชากรศาสตร์;Dependent|ตัวแปรตาม ซึ่งขึ้นอยู่กับ;Design|การออกแบบ รูปแบบ;Descriptive|เชิงพรรณนา;Figure|ภาพประกอบ แผนภาพ;Finding|ข้อค้นพบ ผลการวิจัย;Framework|กรอบแนวคิด;Gap|ช่องว่าง ประเด็นที่ยังขาด;Goal|เป้าหมาย;Hypothesis|สมมติฐาน;Implication|ผลกระทบ นัยสำคัญ;Independent|อิสระ ตัวแปรอิสระ;Instrument|เครื่องมือ;Interpretation|การตีความ;Keyword|คำสำคัญ;Limitation|ข้อจำกัด;Material |วัสดุ อุปกรณ์;Overview|ภาพรวม;Participant|ผู้เข้าร่วม;Population|ประชากร;Presentation|การนำเสนอ;Previous|ก่อนหน้านี้;Procedure|ขั้นตอน กระบวนการ;Purpose|วัตถุประสงค์;Rationale|หลักการและเหตุผล;Reference|เอกสารอ้างอิง;Relevance|ความเกี่ยวข้อง;Reliability|ความเชื่อมั่น;Result|ผลลัพธ์;Sample|กลุ่มตัวอย่าง;Selection|การคัดเลือก;Significance|ความสำคัญ นัยสำคัญ;Source|แหล่งที่มา;Statistic|สถิติ;Subject|หัวข้อ เรื่องที่ศึกษา;Suggestion|ข้อเสนอแนะ;Summary |บทสรุป;Supplementary|เพิ่มเติม เสริม;Synthesize|สังเคราะห์;Table|ตาราง;Theory|ทฤษฎี;Topic|หัวข้อ ประเด็น;Validity|ความเที่ยงตรง;Variable|ตัวแปร"],
+["คำศัพท์เกี่ยวกับการนำเสนอ","Presentation Vocabulary","🎤","Agenda|ระเบียบวาระ หัวข้อที่จะนำเสนอ;Audience|ผู้ฟัง ผู้ชม;Delivery|การถ่ายทอด วิธีการนำเสนอ;Emphasis|การเน้นย้ำ;Engagement|การมีส่วนร่วม ความสนใจ;Interaction|การปฏิสัมพันธ์;Rehearsal|การซ้อม การฝึกซ้อม;Summary|การสรุป บทสรุป;Transition|การเชื่อมโยง การเปลี่ยนผ่าน;Visual|สื่อภาพ ภาพประกอบ"],
+["คำศัพท์เกี่ยวกับการสมัครงาน","Job Application Vocabulary","💼","Administrative|เกี่ยวกับการบริหาร งานธุรการ;Advertisements|ประกาศ โฆษณา;Application |ใบสมัคร การสมัคร;Assistant|ผู้ช่วย;Certificate|ใบรับรอง ประกาศนียบัตร;Department|แผนก ฝ่าย;Employee|ลูกจ้าง พนักงาน;Employer|นายจ้าง;Employment|การจ้างงาน การมีงานทำ;Institution|สถาบัน หน่วยงาน;Internship|การฝึกงาน;License|ใบอนุญาต;Organization|องค์กร;Outstanding|โดดเด่น ยอดเยี่ยม;Position|ตำแหน่ง;Qualification|คุณสมบัติ วุฒิการศึกษา;Recognition|การยอมรับ การได้รับการยกย่อง;Relevant|ที่เกี่ยวข้อง;Responsibility|ความรับผิดชอบ หน้าที่;Volunteer|อาสาสมัคร ทำงานอาสา"]
+].map(c=>({th:c[0],en:c[1],ic:c[2],w:c[3].split(";").map(s=>{const[a,b]=s.split("|");return{e:a.trim(),t:b,c:c[1]}})}));
+const all=C.flatMap(c=>c.w),$=document.getElementById("app");
+let sel=new Set(),opt={shuf:true,rev:false,say:false},S={};
+const LS={get(){try{return JSON.parse(localStorage.getItem("fc_unk")||"[]")}catch(e){return[]}},set(v){try{localStorage.setItem("fc_unk",JSON.stringify(v))}catch(e){}}};
+const shuffle=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const say=t=>{try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-US";speechSynthesis.speak(u)}catch(e){}};
+const esc=s=>s.replace(/[&<>]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[m]));
+function home(){
+ const saved=LS.get();
+ $.innerHTML=`<div class="hero"><h1>🃏 Flashcards ศัพท์สำหรับครู</h1><p>English for Teachers · ฝึกจำศัพท์ทีละใบ</p><div class="chips"><span>${all.length} คำ</span><span>${C.length} หมวด</span><span>ทบทวนค้าง ${saved.length}</span></div></div>
+ <div class="row"><button class="p" id="all">ฝึกทุกคำ (${all.length})</button>
+ <button class="p" id="selb" ${sel.size?"":"disabled"}>ฝึกหมวดที่เลือก (${C.filter(c=>sel.has(c.en)).reduce((n,c)=>n+c.w.length,0)})</button>
+ <button id="rv" ${saved.length?"":"disabled"}>ทบทวนคำที่เคยจำไม่ได้ (${saved.length})</button></div>
+ <div class="opts"><label class="opt"><input type="checkbox" id="o1" ${opt.shuf?"checked":""}>สลับลำดับ</label>
+ <label class="opt"><input type="checkbox" id="o2" ${opt.rev?"checked":""}>หน้าการ์ดเป็นภาษาไทย</label>
+ <label class="opt"><input type="checkbox" id="o3" ${opt.say?"checked":""}>อ่านออกเสียงอัตโนมัติ</label></div>
+ <p class="s" style="margin-top:16px">เลือกหมวด (แตะได้หลายหมวด)</p><div class="grid">${C.map((c,ci)=>`<button class="cat ${sel.has(c.en)?"on":""}" style="--h:${ci*40}" data-c="${c.en}"><span>${c.ic} <b>${c.en}</b></span><small>${c.th} · ${c.w.length} คำ</small></button>`).join("")}</div>`;
+ $.querySelectorAll(".cat").forEach(b=>b.onclick=()=>{const k=b.dataset.c;sel.has(k)?sel.delete(k):sel.add(k);home()});
+ const rd=()=>{opt.shuf=o1.checked;opt.rev=o2.checked;opt.say=o3.checked};
+
+ document.getElementById("all").onclick=()=>{rd();start(all)};
+ document.getElementById("selb").onclick=()=>{rd();start(C.filter(c=>sel.has(c.en)).flatMap(c=>c.w))};
+ document.getElementById("rv").onclick=()=>{rd();start(all.filter(w=>saved.includes(w.e)))};
+ ["o1","o2","o3"].forEach(i=>document.getElementById(i).onchange=rd);
+}
+const all_={};
+function start(ws){S={d:opt.shuf?shuffle(ws):[...ws],i:0,f:false,k:[],u:[],n:ws.length};study()}
+function study(){
+ if(S.i>=S.d.length)return done();
+ const w=S.d[S.i],fr=opt.rev?w.t:w.e,bs=opt.rev?w.e:w.t;
+ $.innerHTML=`<div class="top"><button id="bk">← ออก</button><span>${S.i+1} / ${S.d.length}</span></div>
+ <div class="bar"><i style="width:${S.i/S.d.length*100}%"></i></div>
+ <div class="scene"><div class="card ${S.f?"f":""}" id="cd">
+ <div class="face"><span class="tag">${w.c}</span><button class="sp" id="s1">🔊</button><div class="${opt.rev?"t":"w"}">${esc(fr)}</div><div class="hint">แตะเพื่อพลิกการ์ด</div></div>
+ <div class="face b"><span class="tag">${w.c}</span><button class="sp" id="s2">🔊</button><div class="${opt.rev?"w":"t"}">${esc(bs)}</div></div></div></div>
+ <div class="act"><button class="no" id="n">✗ ยังจำไม่ได้</button><button class="ok" id="y">✓ จำได้แล้ว</button></div>
+ <p class="hint" style="text-align:center">คีย์ลัด: Space = พลิก · ← ยังไม่ได้ · → จำได้</p>`;
+ document.getElementById("cd").onclick=e=>{if(e.target.classList.contains("sp"))return;S.f=!S.f;cd.classList.toggle("f",S.f);if(S.f&&opt.say&&!opt.rev)say(w.e)};
+ s1.onclick=s2.onclick=e=>{e.stopPropagation();say(w.e)};
+ y.onclick=()=>mark(1);n.onclick=()=>mark(0);document.getElementById("bk").onclick=home;
+ if(opt.say&&opt.rev===false)say(w.e);
+}
+function mark(ok){const w=S.d[S.i];(ok?S.k:S.u).push(w);S.i++;S.f=false;study()}
+function done(){
+ const p=Math.round(S.k.length/S.n*100);
+ let sv=LS.get();S.k.forEach(w=>sv=sv.filter(x=>x!==w.e));S.u.forEach(w=>{if(!sv.includes(w.e))sv.push(w.e)});LS.set(sv);
+ const li=a=>a.map(w=>`<li><b>${esc(w.e)}</b><span>${esc(w.t)}</span></li>`).join("");
+ $.innerHTML=`<h1>${p>=80?"🎉 เก่งมาก!":p>=50?"👍 ทำได้ดี":"💪 สู้ต่ออีกนิด"}</h1><p class="s">ฝึกเสร็จแล้ว ${S.n} คำ · จำได้ ${p}%</p>
+ <div class="stat"><div><b style="color:var(--ok)">${S.k.length}</b>จำได้</div><div><b style="color:var(--no)">${S.u.length}</b>ยังจำไม่ได้</div></div>
+ <div class="bar"><i style="width:${p}%;background:var(--ok)"></i></div>
+ ${S.u.length?`<h3>❌ คำที่ยังจำไม่ได้</h3><ul class="l">${li(S.u)}</ul>`:"<p>ไม่มีคำที่จำไม่ได้เลย 🎯</p>"}
+ <details><summary>✅ คำที่จำได้ (${S.k.length})</summary><ul class="l">${li(S.k)}</ul></details>
+ <div class="row" style="margin-top:16px">${S.u.length?'<button class="p" id="rt">ฝึกเฉพาะคำที่ยังจำไม่ได้</button>':""}<button id="ag">ฝึกชุดเดิมอีกครั้ง</button><button id="hm">กลับหน้าแรก</button></div>`;
+ const u=S.u,d=S.d;
+ if(u.length)rt.onclick=()=>start(u);
+ ag.onclick=()=>start(d);hm.onclick=home;
+}
+document.addEventListener("keydown",e=>{if(!document.getElementById("cd"))return;
+ if(e.code==="Space"){e.preventDefault();cd.click()}
+ else if(e.key==="ArrowRight")mark(1);else if(e.key==="ArrowLeft")mark(0)});
+home();
+</script></body></html>
